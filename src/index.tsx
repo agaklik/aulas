@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes as Switch, navigate } from "react-router-dom";
 
-import reportWebVitals from './reportWebVitals';
-import { App } from './App';
+import { Dashboard, Login } from "../pages";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>, 
-  document.getElementById('root')
-);
+export const Routes = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route patch="/entrar" element={<Login />} />
+        <Route patch="/pagina-inicial" element={<Dashboard />} />
+        <Route patch="*" element={<Navigate to="/pagina-inicial" />} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
 
-
-reportWebVitals();
